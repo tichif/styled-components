@@ -24,6 +24,7 @@ const App = () => {
         <h1>Hello world</h1>
         <Button secondary>Secondary </Button>
         <Button>Primary </Button>
+        <Button large>Large </Button>
       </div>
     </>
   );

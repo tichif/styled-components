@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Button = styled.button`
   color: #fff;
-  background-color: #f8049c;
+  background-color: ${(props) => (props.secondary ? '#000' : '#f8049c')};
   font-weight: bold;
   padding: 8px;
   border-radius: 4px;
@@ -13,7 +13,7 @@ export const Button = styled.button`
   display: block;
   white-space: none;
 
-  &::disabled {
+  &:disabled {
     background-color: #eee;
     color: #666;
   }

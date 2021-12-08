@@ -22,7 +22,8 @@ const App = () => {
       <GlobalStyle />
       <div>
         <h1>Hello world</h1>
-        <Button>Hello </Button>
+        <Button secondary>Secondary </Button>
+        <Button>Primary </Button>
       </div>
     </>
   );

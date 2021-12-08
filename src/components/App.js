@@ -1,11 +1,30 @@
 import { Button } from 'components/common';
+import { createGlobalStyle } from 'styled-components';
+
+const GlobalStyle = createGlobalStyle`
+  *{
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background: #fff;
+    min-height: 100vh;
+    color: #000;
+    margin: 0;
+    font-family: 'Kaushan Script';
+  }
+`;
 
 const App = () => {
   return (
-    <div>
-      <h1>Hello world</h1>
-      <Button>Hello </Button>
-    </div>
+    <>
+      <GlobalStyle />
+      <div>
+        <h1>Hello world</h1>
+        <Button>Hello </Button>
+      </div>
+    </>
   );
 };
 

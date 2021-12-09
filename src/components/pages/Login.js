@@ -1,7 +1,13 @@
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-import { Layout, Input, PasswordInput, Button } from 'components/common';
+import {
+  Layout,
+  Input,
+  PasswordInput,
+  Button,
+  Spinner,
+} from 'components/common';
 
 const Form = styled.form`
   width: 100%;
@@ -50,18 +56,24 @@ const Login = () => {
     <Layout>
       <h1>Login</h1>
       <Form onSubmit={submitHandler}>
-        <Input
-          type='text'
-          name='username'
-          placeholder='Username '
-          value={formFields.username}
-          onChange={handleInputChange}
-        />
-        <PasswordInput
-          name='password'
-          value={formFields.password}
-          onChange={handleInputChange}
-        />
+        {loading ? (
+          <Spinner />
+        ) : (
+          <>
+            <Input
+              type='text'
+              name='username'
+              placeholder='Username '
+              value={formFields.username}
+              onChange={handleInputChange}
+            />
+            <PasswordInput
+              name='password'
+              value={formFields.password}
+              onChange={handleInputChange}
+            />
+          </>
+        )}
         <Button large type='submit' disabled={loading}>
           {loading ? 'Loading...' : 'Login'}
         </Button>

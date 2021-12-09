@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 import { Link as ReactRouterDomLink, useLocation } from 'react-router-dom';
 
@@ -14,7 +15,7 @@ const HeaderWrapper = styled.header`
 `;
 
 const Menu = styled.nav`
-  display: block;
+  display: ${(props) => (props.isOpen ? 'block' : 'none')};
   font-family: 'Open Sans';
   position: absolute;
   width: 100%;
@@ -56,11 +57,35 @@ const StyledLink = styled(Link)`
   text-decoration: none;
 `;
 
+const MobileMenuIcon = styled.div`
+  margin: auto 0 auto auto;
+  width: 25px;
+  min-width: 25px;
+  padding: 5px;
+
+  > div {
+    height: 3px;
+    background: #000;
+    margin: 5px 0;
+    width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+`;
+
 export const Header = () => {
   const { pathname } = useLocation();
+  const [menuOpen, setMenuOpen] = useState(false);
   return (
     <HeaderWrapper>
-      <Menu>
+      <MobileMenuIcon onClick={() => setMenuOpen((state) => !state)}>
+        <div />
+        <div />
+        <div />
+      </MobileMenuIcon>
+      <Menu isOpen={menuOpen}>
         <StyledLink to='/' isActive={pathname === '/'}>
           Home
         </StyledLink>

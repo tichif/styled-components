@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 
-import { Layout, Input } from 'components/common';
+import { Layout, Input, PasswordInput } from 'components/common';
 
 const Form = styled.form`
   width: 100%;
@@ -33,10 +33,8 @@ const Login = () => {
           value={formFields.username}
           onChange={handleInputChange}
         />
-        <Input
-          type='password'
+        <PasswordInput
           name='password'
-          placeholder='Password '
           value={formFields.password}
           onChange={handleInputChange}
         />

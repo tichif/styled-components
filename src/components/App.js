@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Home from 'components/pages/Home';
@@ -19,9 +19,14 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+const theme = {
+  primaryColor: '#f8049c',
+  secondaryColor: '#fdd54f',
+};
+
 const App = () => {
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Router>
         <Routes>
@@ -29,7 +34,7 @@ const App = () => {
           <Route path='/login' element={<Login />} />
         </Routes>
       </Router>
-    </>
+    </ThemeProvider>
   );
 };
 

@@ -10,8 +10,12 @@ const HeaderWrapper = styled.header`
   padding: 0 16px;
   position: fixed;
   top: 0;
-  background-image: linear-gradient(to right, #f8049c, #fdd54f);
-  border-bottom: #fdd54f 3px solid;
+  background-image: linear-gradient(
+    to right,
+    ${(props) => props.theme.primaryColor},
+    ${(props) => props.theme.secondaryColor}
+  );
+  border-bottom: ${(props) => props.theme.secondaryColor} 3px solid;
 `;
 
 const Menu = styled.nav`
@@ -23,7 +27,7 @@ const Menu = styled.nav`
   left: 0;
   padding: 8px;
   box-sizing: border-box;
-  border-bottom: #fdd54f 3px solid;
+  border-bottom: ${(props) => props.theme.secondaryColor}, 3px solid;
   background: #fff;
 
   @media (min-width: 768px) {

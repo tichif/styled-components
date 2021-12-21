@@ -14,9 +14,9 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: #fff;
+    background: ${(props) => props.theme.bodyBackgroundColor};
     min-height: 100vh;
-    color: #000;
+    color: ${(props) => props.theme.bodyFontColor};
     margin: 0;
     font-family: 'Kaushan Script';
   }
